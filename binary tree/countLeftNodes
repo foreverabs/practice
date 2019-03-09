@@ -1,0 +1,17 @@
+public int countLeftNodes() {
+    return countLeftNodes(overallRoot);
+}
+
+public int countLeftNodes(IntTreeNode root) {
+    int count = 0;
+    if(root != null) {
+        if(root.left != null) {
+            count += 1 + countLeftNodes(root.left);
+        }
+        if(root.right != null) {
+            count += countLeftNodes(root.right);
+        }
+        return count;
+    }
+    return 0;
+}
