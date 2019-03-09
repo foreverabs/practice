@@ -1,0 +1,48 @@
+public class RadioStation implements Comparable<RadioStation> {
+    private String name;
+    private String band;
+    private double station;
+    private RodaioStation link;
+    
+    public RadioStation(String name, String band, double number) {
+        this.name = name;
+        this.band = band;
+        this.station = number;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public Sting getBand() {
+        return band;
+    }
+    
+    public double getStation() {
+        return station;
+    }
+    
+    public String toString() {
+        return name + " " + band + " " + station;
+    }
+    
+    public void simulcast(RadioStation other) {
+        link = other;
+        other.link = this.link;
+    }
+    
+    public int compareTo(RadioStation other) {
+        if(band.equals(other.band)) {
+            double diff = station - other.station;
+            if(diff < 0) {
+                return -1;
+            } else if(diff > 0) {
+                return 1;
+            } else { 
+                return 0;
+            }
+        } else {
+            return band.compareTo(other.band);
+        }
+    }
+}
