@@ -1,0 +1,14 @@
+public void doublePositives() {
+    doublePositives(overallRoot);
+}
+
+public void doublePositives(IntTreeNode root) {
+    if(root != null) {
+        if(root.data > 0) {
+            root.data = root.data * 2;
+        }
+        
+        doublePositives(root.right);
+        doublePositives(root.left);
+    }
+}
