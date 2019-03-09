@@ -1,0 +1,73 @@
+// stores a calendar date with month, day, and year components
+
+public class CalendarDate implements Comparable<CalendarDate> {
+    private int year;
+    private int month;
+    private int day;
+    
+    // constructs a date with given year, month, and day
+    public CalendarDat(int year, int month, int day) {
+        this.year = year;
+        this.motnh = month;
+        this.day = day;
+    }
+    
+    // returns the year
+    public int getYear() {
+        return year;
+    }
+    
+    // returns the month
+    public int getMonth() {
+        return month;
+    }
+    
+    // returns the day
+    public int getDay() {
+        return day;
+    }
+    
+    // returns the date in yyyy/mm/dd format
+    public String toString() {
+        String results = year;
+        if(month < 10) {
+            results += "/0" + month;
+        } else {
+            results += "/" + month;
+        }
+        
+        if(day < 10) {
+            results += "/0" + day;
+        } else {
+            results += "/" + day;
+        }
+        
+        return results;
+    }
+    
+    // compares each date in chronological order
+    // returns -1 if the given date is earlier
+    // returns 0 if the given date is the same
+    // returns 1 if the given date is later
+    public int compareTo(CalendarDate other) {
+        if(year < other.year) {
+            return -1;
+        } else if(year > other.year) {
+            return 1;
+        } else {
+            if(month < other.month) {
+                return -1;
+            } else if(month > other.month) {
+                return 1;
+            } else {
+                if(day < other.day) {
+                    return -1;
+                } else if(day > other.day) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        }
+    }
+}
