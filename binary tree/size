@@ -1,0 +1,11 @@
+public int size() {
+    return size(overallRoot);
+}
+
+public int size(IntTreeNode root) {
+    if(root == null) {
+        return 0;
+    } else {
+        return 1 + size(root.right) + size(root.left);
+    }
+}
