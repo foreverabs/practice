@@ -1,0 +1,11 @@
+public int sum() {
+    return sum(overallRoot);
+}
+
+public int sum(IntTreeNode root) {
+    if(root == null) {
+        return 0;
+    } else {
+        return root.data + sum(root.right) + sum(root.left);
+    }
+}
