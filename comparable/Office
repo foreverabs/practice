@@ -1,0 +1,53 @@
+public class Office implements Comparable<Office> {
+    private double length;
+    private double width;
+    private boolean couch;
+    private int windows;
+    
+    public Office(double width, double length, boolean couch, int windows) {
+        this.width = width;
+        this.length = length;
+        this.couch = couch;
+        this.windows = windows;
+    }
+    
+    public boolean isCorner() {
+        if(length == width && windows == 2) {
+            return true;
+        }
+        return false;
+    }
+    
+    public String toString() {
+        // width: , length: , windows: . If the office has a couch ", has a couch"
+        String result = "width: " + width + ", length: " + length + ", windows: " + windows; 
+        if(couch == true) {
+            result += ", has a couch";
+        }
+        return result;
+    }
+    
+    public int compareTo(Office other) {
+        double area1 = length * width;
+        double area2 = other.length * other.width;
+        if(area1 > area2) {
+            return -1;
+        } else if(area1 < area2) {
+            return 1;
+        } else {
+            if(windows > other.windows) {
+                return -1;
+            } else if(windows < other.windows) {
+                return 1;
+            } else {
+                if(couch == true && other.couch != true) {
+                    return -1;
+                } else if(couch != true && other.couch == true) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        }
+    }
+}
