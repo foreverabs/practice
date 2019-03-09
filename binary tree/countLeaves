@@ -1,0 +1,13 @@
+public int countLeaves() {
+    return countLeaves(overallRoot);
+}
+
+public int countLeaves(IntTreeNode root) {
+    if(root == null) {
+        return 0;
+    } else if(root.right == null && root.left == null) {
+        return 1;
+    } else {
+        return countLeaves(root.right) + countLeaves(root.left);
+    }
+}
