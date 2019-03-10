@@ -1,0 +1,33 @@
+public int height() {
+    return height(overallRoot);
+}
+
+private int height(IntTreeNode root) {
+    if(root == null) {
+        return 0;
+    } else {
+        return 1 + Math.max(height(root.left), height(root.right));    // use Math.max to choose the greater of the left or right tree
+    }
+}
+
+
+
+// Alternate solution
+public int height() {
+    return height(overallRoot);
+}
+
+private int height(IntTreeNode root) {
+    if(root == null) {
+        return 0;
+    }
+    int right = height(root.right);
+    int left = height(root.left);
+       
+    if(right > left) {      // chooses the greater of the left or right tree
+        return right + 1;
+    } else {
+        return left + 1;
+    }
+}
+        
