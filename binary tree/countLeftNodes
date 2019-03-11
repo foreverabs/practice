@@ -1,7 +1,11 @@
+// returns the number of left children in the tree
 public int countLeftNodes() {
     return countLeftNodes(overallRoot);
 }
 
+// if: root must not be null
+//  if: traverse the left tree and increase count by 1 when a left node is found
+//  if: traverse the right tree to find left nodes  
 public int countLeftNodes(IntTreeNode root) {
     int count = 0;
     if(root != null) {
@@ -9,7 +13,7 @@ public int countLeftNodes(IntTreeNode root) {
             count += 1 + countLeftNodes(root.left);
         }
         if(root.right != null) {
-            count += countLeftNodes(root.right);
+            count += 0 + countLeftNodes(root.right);    // add 0 to show that you do not increase the count if it's a right node
         }
         return count;
     }
