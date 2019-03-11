@@ -1,0 +1,21 @@
+public boolean isFull() {
+    return isFull(overallRoot);
+}
+
+// returns true if root is empty or has 0 children
+// if the root has 2 children, we'll traverse the tree 
+public boolean isFull(IntTreeNode root) {
+    if(root == null) {
+        return true;
+    }
+    
+    if(root.right == null && root.left == null) {
+        return true;
+    }
+
+    if((root.right != null) && (root.left != null)) {
+        return isFull(root.right) && isFull(root.left);
+    }
+    
+    return false;
+}
