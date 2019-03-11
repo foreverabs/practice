@@ -1,7 +1,11 @@
+// returns the total number of leaf nodes in the tree
 public int countLeaves() {
     return countLeaves(overallRoot);
 }
 
+// if: returns 0 if the tree is empty
+// else if: returns 1 if it is a leaf node
+// else: traverses the left and right subtrees
 public int countLeaves(IntTreeNode root) {
     if(root == null) {
         return 0;
