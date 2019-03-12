@@ -1,0 +1,26 @@
+public void takeSmallerFrom(LinkedIntList other) {
+    if(front != null && other.front != null) {
+        if(front.data > other.front.data) {
+            ListNode temp = front;
+            front = other.front;
+            other.front = temp;
+            temp = front.next;
+            front.next = other.front.next;
+            other.front.next = temp;
+        }
+        ListNode curr1 = front;
+        ListNode curr2 = other.front;
+        while(curr1.next != null && curr2.next != null) {
+            if(curr1.next.data > curr2.next.data) {
+                ListNode temp = curr1.next;
+                curr1.next = curr2.next;
+                curr2.next = temp;
+                temp = curr1.next.next;
+                curr1.next.next = curr2.next.next;
+                curr2.next.next = temp;
+            }
+            curr1 = curr1.next;
+            curr2 = curr2.next;
+        }  
+    }
+}
