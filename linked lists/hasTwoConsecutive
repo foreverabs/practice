@@ -1,0 +1,15 @@
+public boolean hasTwoConsecutive() {
+    if(front != null) {
+        ListNode curr = front.next;
+        int n = front.data;
+        while(curr != null) {
+            if((n + 1) == curr.data) {
+                return true;
+            }
+            n = curr.data;
+            curr = curr.next;
+        }
+        return false;
+    }
+    return false;
+}
