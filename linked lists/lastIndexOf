@@ -1,0 +1,16 @@
+public int lastIndexOf(int value) {
+    if(front != null) {
+        ListNode curr = front;
+        int index = 0;
+        int last = -1;
+        while(curr != null) {
+            if(curr.data == value) {
+                last = index;
+            }
+            index++;
+            curr = curr.next;
+        }
+        return last;
+    }
+    return -1;
+}
