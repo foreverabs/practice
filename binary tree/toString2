@@ -5,9 +5,10 @@ public String toString2() {
 private String toString2(IntTreeNode root) {
     if(root == null) {
         return "empty";
-    } else if(root.left == null && root.right == null) {
+    } else if(root.left == null && root.right == null) {    // when you reach the very end of a left/right tree
         return "" + root.data;
-    } else {
+    } else {    
+        // the patern is to print the root, traverse and print the left values, then traverse and print the right values
         return "(" + root.data + ", " + toString2(root.left) + ", " + toString2(root.right) + ")";
     }  
 }
