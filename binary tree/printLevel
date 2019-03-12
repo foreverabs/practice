@@ -1,0 +1,24 @@
+// prints the values at level n from the left to right, one per line
+public void printLevel(int level) {
+    printLevel(level, 1, overallRoot);
+}
+
+// if: empty trees do not produce any output
+//     if: given level is less than 1, throw al IllegalArgumentException
+//     if: use currLevel parameter to keep of track of what level to traverse,
+//         if it matches the given level it'll print all the values on that level
+//     else: traverse the left and right tree, increasing the currLevel count by 1
+private void printLevel(int level, int currLevel, IntTreeNode root) {
+    if(root != null) {
+        if(level < 1) {
+            throw new IllegalArgumentException();
+        }
+        
+        if(currLevel == level) {
+            System.out.println(root.data);
+        } else {
+            printLevel(level, currLevel + 1, root.left);
+            printLevel(level, currLevel + 1, root.right);
+        }
+    }
+}
