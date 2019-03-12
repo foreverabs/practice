@@ -1,0 +1,19 @@
+public int deleteBack() {
+    if(front == null) {
+        throw new NoSuchElementException();
+    }
+    ListNode curr = front;
+    int data = 0;
+    
+    if(front.next == null) {
+        data = front.data;
+        front = null;
+        return data;
+    }
+    while(curr.next.next != null) {
+        curr = curr.next;
+    }
+    data = curr.next.data;
+    curr.next = null;
+    return data;   
+}
