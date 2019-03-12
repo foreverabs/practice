@@ -1,0 +1,17 @@
+// returns the sum of the values in even indices in a list of integers
+public int evenSum() {
+    if(front != null) {                   // non-empty lists
+        if(front.next != null) {          // lists with more than 1 node
+            int sum = 0;
+            ListNode curr = front;
+            while(curr != null) {
+                sum += curr.data;
+                curr = curr.next.next;
+            }
+            return sum;
+        } else {                          // lists with only 1 node
+            return front.data;
+        }
+    }
+    return 0;                             // empty list
+}
