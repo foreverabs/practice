@@ -1,12 +1,18 @@
+// return the value at the overallRoot plus 2 times the values stored at the
+// next level of the tree plus 3 times the values stored at the next level
+// of the tree plus 4 times the values stored at the next level of the tree
+// and so on
 public int depthSum() {
     return depthSum(overallRoot, 1);
 }
-
+// if: returns 0 if tree is empty
+// else: return level times the value stored in the level plus the rest of the tree 
 public int depthSum(IntTreeNode root, int level) {
     if(root == null) {
         return 0;
     } else {
         return level * root.data + 
+            // traversing the left and right tree to find the nodes all on the same level
             depthSum(root.right, level + 1) + depthSum(root.left, level + 1);
     }
 }
