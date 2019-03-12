@@ -1,0 +1,33 @@
+public void switchPairs() {
+    if(front != null && front.next != null) {
+        ListNode curr = front.next;
+        front.next = curr.next;
+        curr.next = front;
+        front = curr;
+        curr = curr.next;
+        while(curr.next != null && curr.next.next != null) {
+            ListNode temp = curr.next.next;
+            curr.next.next = temp.next;
+            temp.next = curr.next;
+            curr.next = temp;
+            curr = temp.next;
+        }
+    } 
+}
+
+
+// Alternate solution using recursion (not encouraged to use recursion but it does work)
+public void switchPairs() {
+    front = switchPairs(front);
+}
+
+private ListNode switchPairs(ListNode front) {
+    if(front != null && front.next != null) {
+        ListNode curr = front.next;
+        front.next = curr.next;
+        curr.next = front;
+        front = curr;
+        front.next.next = switchPairs(front.next.next);
+    }
+    return front;
+}
