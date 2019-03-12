@@ -1,0 +1,14 @@
+public String toString2() {
+    if(front != null) {
+        ListNode curr = front;
+        String result = "[" + curr.data;
+        curr = curr.next;
+        while(curr != null) {
+            result += ", " + curr.data;
+            curr = curr.next;
+        }
+        result += "]";
+        return result;
+    }
+    return "[]";
+}
