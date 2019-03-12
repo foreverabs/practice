@@ -1,0 +1,15 @@
+public int indexOf(int value) {
+    if(front != null) {
+        ListNode curr = front;
+        int index = 0;
+        while(curr != null) {
+            if(curr.data == value) {
+                return index;
+            }
+            index++;
+            curr = curr.next;
+        }
+        return -1;
+    }
+    return -1;
+}
