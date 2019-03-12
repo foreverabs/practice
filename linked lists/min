@@ -1,0 +1,14 @@
+public int min() {
+    if(front == null) {
+        throw new NoSuchElementException();
+    }
+    int min = front.data;
+    ListNode curr = front;
+    while(curr != null) {
+        if(curr.data < min) {
+            min = curr.data;
+        }
+        curr = curr.next;
+    }
+    return min;
+}
