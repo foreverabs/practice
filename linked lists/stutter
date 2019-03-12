@@ -1,0 +1,11 @@
+public void stutter() {
+    if(front != null) {
+        ListNode curr = front;
+        while(curr != null) {
+            ListNode n = new ListNode(curr.data);
+            n.next = curr.next;
+            curr.next = n;
+            curr = n.next;
+        }
+    }
+}
