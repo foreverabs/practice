@@ -1,0 +1,24 @@
+// accepts a second list as a parameter and that returns true if
+// the two lists are equal and that returns false otherwise
+public boolean equals2(LinkedIntList other) {
+    ListNode curr1 = front;
+    ListNode curr2 = other.front;
+    
+    // the key to this problem is catching all the false cases
+    // because there is only ONE true case, so you don't have 
+    // to address any of the true cases
+    
+    while(curr1 != null || curr2 != null) {
+        if(curr1 == null) {
+            return false;
+        } else if(curr2 == null) {
+            return false;
+        } else if(curr1.data != curr2.data) {
+            return false;
+        } else {
+            curr1 = curr1.next;
+            curr2 = curr2.next;
+        }
+    }
+    return true;
+}
