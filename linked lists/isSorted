@@ -1,0 +1,15 @@
+public boolean isSorted() {
+    if(front != null) {
+        ListNode curr = front.next;
+        int n = front.data;
+        while(curr != null) {
+            if(n > curr.data) {
+                return false;
+            }
+            n = curr.data;
+            curr = curr.next;
+        }
+        return true;
+    }
+    return true;
+}
