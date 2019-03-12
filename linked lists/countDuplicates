@@ -1,0 +1,16 @@
+public int countDuplicates() {
+    if(front != null) {
+        ListNode curr = front.next;
+        int n = front.data;
+        int duplicate = 0;
+        while(curr != null) {
+            if(n == curr.data) {
+                duplicate++;
+            }
+            n = curr.data;
+            curr = curr.next;
+        }
+        return duplicate;
+    }
+    return 0;
+}
