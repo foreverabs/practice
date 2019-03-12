@@ -1,0 +1,17 @@
+public void removeAll(int value) {
+    if(front != null) {
+        if(front.next != null) {
+            ListNode curr = front;
+            if(front.data == value) {
+                front = front.next;
+            }
+            while(curr.next != null) {
+                if(curr.next.data == value) {
+                    curr.next = curr.next.next;
+                } else {
+                    curr = curr.next;
+                }
+            }
+        } 
+    }
+}
