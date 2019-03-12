@@ -1,0 +1,31 @@
+public void split() {
+    if(front != null) {
+        ListNode curr = front;
+        ListNode neg = null;
+        ListNode pos = null;
+        ListNode last = null;
+        
+        while(curr != null) {
+            ListNode next = curr.next;
+            
+            if(curr.data < 0) {
+                curr.next = neg;
+                neg = curr;
+                if(neg.next == null) {
+                    last = neg;
+                }
+            } else {
+                curr.next = pos;
+                pos = curr;
+            }
+            curr = next;
+        }
+        
+        if(neg == null) {
+            front = pos;
+        } else {
+            last.next = pos;
+            front = neg;
+        }
+    }
+}
