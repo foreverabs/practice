@@ -1,0 +1,18 @@
+public void printLeaves() {
+    if(overallRoot != null) {
+        System.out.print("leaves:");
+        printLeaves(overallRoot);
+    } else {
+        System.out.println("no leaves");
+    }
+}
+
+private void printLeaves(IntTreeNode root) {
+    if(root != null) {
+        if(root.right == null && root.left == null) {
+            System.out.print(" " + root.data);
+        }
+        printLeaves(root.right);
+        printLeaves(root.left);
+    }
+}
