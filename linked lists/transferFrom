@@ -1,0 +1,14 @@
+// accepts a second LinkedIntList as a parameter and that moves values from the second list to this list
+public void transferFrom(LinkedIntList other) {
+    if(front != null && other.front != null) {    // for when both lists aren't empty or second list is empty
+        ListNode curr = front;
+        while(curr.next != null) {
+            curr = curr.next;
+        }
+        curr.next = other.front;
+        other.front = null;
+    } else if(front == null) {                    // for when only the first list is empty
+        front = other.front;
+        other.front = null;
+    }
+}
