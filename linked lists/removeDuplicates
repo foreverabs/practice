@@ -1,0 +1,18 @@
+public void removeDuplicates() {
+    if(front != null) {
+        if(front.next != null) {
+            ListNode curr = front;
+            while(curr != null) {
+                ListNode traverse = curr;
+                while(traverse.next != null) {
+                    if(traverse.next.data == curr.data) {
+                        traverse.next = traverse.next.next;
+                    } else {
+                        traverse = traverse.next;
+                    }
+                }
+                curr = curr.next;
+            }
+        }
+    }
+}
